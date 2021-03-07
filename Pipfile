@@ -5,8 +5,10 @@ name = "pypi"
 
 [packages]
 django = "*"
-
-[dev-packages]
+graphene-django = "*"
+graphene = "*"
 
 [requires]
-python_version = "3.6"
+python_version = "3.9"
+
+[dev-packages]
