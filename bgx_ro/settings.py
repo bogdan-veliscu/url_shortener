@@ -25,7 +25,11 @@ SECRET_KEY = 's%r=_kv+#atw!g^t_%^qv%1n6no5w1ygph5tqc1a^d1!-jxl0b'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.bgx.ro','.codeswiftr.com','.mumchef.io', '104.248.31.169']
+ALLOWED_HOSTS = ['.bgx.ro','.codeswiftr.com','.mumchef.io', '104.248.31.169', 'codeswiftr.tplinkdns.com']
+
+CORS_ALLOWED_ORIGINS = [
+    "http://codeswiftr.tplinkdns.com"
+]
 
 
 # Application definition
@@ -38,12 +42,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'graphene_django',
+    'corsheaders',
     'shortener',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -122,5 +128,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 GRAPHENE = {
-    'SCHEMA': 'backend.schema.schema'
+    'SCHEMA': 'bgx_ro.schema.schema'
 }
